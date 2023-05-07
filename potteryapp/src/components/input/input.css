@@ -9,23 +9,29 @@ margin-left: 100px;
 margin-right: 100px;
 text-align: center;}
 
-.crockery {width: 150px;
-    height: 150px;
+.crockery {width: 170px;
+    height: 170px;
     margin: 20px;
 }
 
-.crockery:hover{width: 160px;
-    height: 160px;
+.crockery:hover{width: 180px;
+    height: 180px;
 margin:10px;}
 
-.crockery:active{width: 160px;
-    height: 160px;}
+.crockery:active{width: 180px;
+    height: 180px;}
+
+.crockery:after{width: 180px;
+    height: 180px;}
 
 #clays {width: 200px;
     text-align: center;
     font-size: 14pt;
 background-color: rgb(214, 236, 248);
-height: 40px;}
+height: 40px;
+border-color: black;
+border-style: outset;
+border-width:initial;}
 
 
 .slidercontainer {display:flex;
@@ -35,13 +41,18 @@ height: 40px;}
     appearance: none;
     width: 70%;
 height: 20px;
-background-color:rgb(236, 208, 199)}
+background-color:rgb(236, 208, 199);
+border-style:dashed;}
+
+.slider:active {background-color:rgb(222, 183, 170);}
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
     height: 25px; 
+    border-style:inset;
+    border-color: black;
     background: darksalmon; 
     cursor: pointer; 
   }

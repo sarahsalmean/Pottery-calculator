@@ -32,6 +32,15 @@ export default function Input(props) {
       </select>
       </div>
       {props.clay && <p>I using {props.clay} clay.</p>}
+
+      <div>
+        {" "}
+        <h3 className="question">What cone will you be firing it at?</h3>
+        <div class="slidecontainer">
+  <input type="range" min="1" max="10" class="slider" id="myRange" onChange={props.coneOnClick}/>
+</div>
+      {props.cone && <p>{props.cone} cone.</p>}
+      </div>
       <div>
         {" "}
         <h3 className="question">What height would you like it to be? (cm)</h3>{" "}

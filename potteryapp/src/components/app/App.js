@@ -11,6 +11,7 @@ function App() {
   const [clay, setClay] = useState(null)
   const [width, setWidth] = useState(null)
   const [height, setHeight] = useState(null)
+  const [cone, setCone] = useState(null)
 
 function choosePottery(event) {
   setPottery(event.target.alt)
@@ -28,10 +29,14 @@ function chooseWidth(event)
 function chooseHeight(event)
 {setHeight(event.target.value)}
 
+
+function chooseCone(event)
+{setCone(event.target.value)}
+
   return (
     <div className="App">
    <div className="logo-container"><img src={logo} class= "logo" alt="claycalculator logo"/></div>
-   <Input potOnClick={choosePottery} pottery={pottery} clays={chooseClay} clay={clay} width={width} widthOnClick={chooseWidth} height={height} heightOnClick={chooseHeight}>
+   <Input potOnClick={choosePottery} pottery={pottery} clays={chooseClay} clay={clay} width={width} widthOnClick={chooseWidth} height={height} heightOnClick={chooseHeight} cone={cone} coneOnClick={chooseCone}>
    </Input>
     </div>
   );
