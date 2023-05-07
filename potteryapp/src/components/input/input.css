@@ -1,0 +1,30 @@
+.objects {display:flex;
+width: 80%;
+flex-direction: row;
+justify-self: center;
+justify-items: center;
+justify-content: center;
+align-items: center;
+margin-left: 100px;
+margin-right: 100px;
+text-align: center;}
+
+.crockery {width: 150px;
+    height: 150px;
+    margin: 20px;
+}
+
+.crockery:hover{width: 160px;
+    height: 160px;}
+
+.crockery:active{width: 160px;
+    height: 160px;}
+
+#clays {width: 160px}
+
+
+.slidercontainer {display:flex;
+    width: 20%;}
+
+.slider {width: 70%;}
+
