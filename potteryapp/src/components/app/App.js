@@ -4,7 +4,7 @@ import logo from "./logo-cream.png";
 import Input from "../input/index";
 import Display from "../display/index";
 import { useState } from "react";
-import updatedlogo from "./updatedlogo.png"
+import updatedlogo from "./updatedlogo.png";
 
 function App() {
   const [pottery, setPottery] = useState(null);
@@ -14,7 +14,7 @@ function App() {
   const [cone, setCone] = useState(null);
   const [clicked, setClicked] = useState(null);
   const [depth, setDepth] = useState(50);
-  let shrinkage = null
+  const [shrinkage, setShrinkage] = useState(null);
 
   function choosePottery(event) {
     setPottery(event.target.alt);
@@ -22,33 +22,40 @@ function App() {
   }
 
   function chooseClay(event) {
-    console.log(event.target.value)
-    setClay(event.target.value)
-    console.log(clay)
-  shrinkCalc()}
-
-function shrinkCalc(clay, shrinkage) {
-    if (clay === "raku") {
-      shrinkage = 89
-      setCone("06 - 04")
-    } else if (clay === "stoneware") {
-      shrinkage = 89
-      setCone("05 - 10")
-    } else if (clay === "earthenware") {
-     shrinkage = 91
-      setCone("04 - 02")
-    } else if (clay === "paper") {
-      shrinkage = 93
-      setCone("06 - 04")
-    } else if (clay === "powder") {
-      shrinkage = 91
-      setCone("06 - 04")
-    } else if (clay === "porcelain") {
-      shrinkage = 90
-      setCone("09 - 10")
-    }
-    else console.log("no clay chosen")
+    console.log(event.target.value);
+    const chosenClay = event.target.value;
+    setClay(chosenClay);
+    console.log(chosenClay);
+    const newShrinkage = shrinkCalc(chosenClay);
+    setShrinkage(newShrinkage);
   }
+  
+  function shrinkCalc(clay) {
+    let newShrinkage = null;
+    if (clay === "raku") {
+      newShrinkage = 89;
+      setCone("06 - 04");
+    } else if (clay === "stoneware") {
+      newShrinkage = 89;
+      setCone("05 - 10");
+    } else if (clay === "earthenware") {
+      newShrinkage = 91;
+      setCone("04 - 02");
+    } else if (clay === "paper") {
+      newShrinkage = 93;
+      setCone("06 - 04");
+    } else if (clay === "powder") {
+      newShrinkage = 91;
+      setCone("06 - 04");
+    } else if (clay === "porcelain") {
+      newShrinkage = 90;
+      setCone("09 - 10");
+    } else {
+      console.log("error");
+    }
+    return newShrinkage;
+  }
+
 
   function chooseWidth(event) {
     setWidth(event.target.value);
@@ -57,7 +64,6 @@ function shrinkCalc(clay, shrinkage) {
   function chooseHeight(event) {
     setHeight(event.target.value);
   }
-
 
   function chooseDepth(event) {
     setDepth(event.target.value);
@@ -77,15 +83,15 @@ function shrinkCalc(clay, shrinkage) {
     setClicked(true);
   }
 
-  function reset() 
-  {setClicked(false)
-  setPottery(null)
-setClay(null)
- setWidth(50)
- setHeight(50)
-setCone(null)
-shrinkage = null
-setDepth(50)
+  function reset() {
+    setClicked(false);
+    setPottery(null);
+    setClay(null);
+    setWidth(50);
+    setHeight(50);
+    setCone(null);
+    setShrinkage(null)
+    setDepth(50);
   }
 
   return (
@@ -109,16 +115,19 @@ setDepth(50)
           depthOnClick={chooseDepth}
         ></Input>
       )}
-      {clicked && (<div className="display-container">
-        <Display buttonClicker={reset}
-          height={height}
-          width={width}
-          shrinkage={shrinkage}
-          cone={cone}
-          depth={depth}
-          clay={clay}
-          pottery={pottery}
-        ></Display></div>
+      {clicked && (
+        <div className="display-container">
+          <Display
+            buttonClicker={reset}
+            height={height}
+            width={width}
+            shrinkage={shrinkage}
+            cone={cone}
+            depth={depth}
+            clay={clay}
+            pottery={pottery}
+          ></Display>
+        </div>
       )}
     </div>
   );
