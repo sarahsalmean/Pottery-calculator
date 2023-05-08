@@ -1,9 +1,10 @@
 import React from "react";
 import "./display.css"
+import footerpic from "./footerpic.png"
 
 export default function Display(props) {
   return (
-    <div class="sizing">
+    <div className="sizing">
       <h3>Your sizing...</h3>
       <p>
         Based on average shrinkage rates of {props.clay} clay when fired at the
@@ -14,6 +15,7 @@ export default function Display(props) {
       <p className="size">Width: {props.width}cm</p>
       <p className="size">Depth: {props.depth}cm</p>
       <button class="button" onClick={props.buttonClicker}>Re-calculate</button>
+      <img src={footerpic} className="footerpic" alt="drawing of various ceramic objects"/>
     </div>
   );
 }

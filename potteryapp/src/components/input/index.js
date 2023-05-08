@@ -24,19 +24,19 @@ export default function Input(props) {
         <h3 className="question">Which clay are you using?</h3>
         <select id="clays" onChange={props.clays}>
         <option value="choose">Choose clay...</option>
-        <option value="raku">Raku</option>
-        <option value="paper">Paper</option>
-        <option value="powder">Powder</option>
-        <option value="earthenware">Earthenware</option>
-        <option value="porcelain">Porcelain</option>
-        <option value="stoneware">Stoneware</option>
+        <option value="raku" onClick={props.clays}>Raku</option>
+        <option value="paper" onClick={props.clays}>Paper</option>
+        <option value="powder" onClick={props.clays}>Powder</option>
+        <option value="earthenware" onClick={props.clays} >Earthenware</option>
+        <option value="porcelain" onClick={props.clays}>Porcelain</option>
+        <option value="stoneware" onClick={props.clays}>Stoneware</option>
       </select>
       </div>
       {props.clay && <p class="choice">I using {props.clay} clay.</p>}
       <div>
         {" "}
         <h3 className="question">What height would you like it to be? (cm)</h3>{" "}
-        <div class="slidecontainer">
+        <div className="slidecontainer">
   <input type="range" min="1" max="50" class="slider" id="myRange" onChange={props.heightOnClick}/>
 </div>
       {props.height && <p class="choice">{props.height} cm tall.</p>}
@@ -45,7 +45,7 @@ export default function Input(props) {
       <div>
         {" "}
         <h3 className="question">How wide would you like it to be? (cm)</h3>{" "}
-        <div class="slidecontainer">
+        <div className="slidecontainer">
   <input type="range" min="1" max="50" class="slider" id="myRange" onChange={props.widthOnClick}/>
 </div>
       {props.width && <p class="choice">{props.width} cm wide.</p>}
@@ -53,7 +53,7 @@ export default function Input(props) {
       <div>
         {" "}
         <h3 className="question">How deep would you like it to be? (cm)</h3>{" "}
-        <div class="slidecontainer">
+        <div className="slidecontainer">
   <input type="range" min="1" max="50" class="slider" id="myRange" onChange={props.depthOnClick}/>
 </div>
       {props.depth && <p class="choice">{props.depth} cm deep.</p>}
