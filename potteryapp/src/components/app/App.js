@@ -15,6 +15,7 @@ function App() {
   const [clicked, setClicked] = useState(null);
   const [depth, setDepth] = useState(50);
   const [shrinkage, setShrinkage] = useState(null);
+  const [needInfo, setNeedInfo] = useState(null)
 
   function choosePottery(event) {
     setPottery(event.target.alt);
@@ -70,18 +71,15 @@ function App() {
   }
 
   function buttonClick(clay) {
-    console.log(height);
-    console.log(width);
-    console.log(depth);
-    console.log(shrinkage);
-    let heightCalc = (height / shrinkage) * 100;
+    if (height === null || depth === null || clay === null || width === null) {setNeedInfo(true)}
+    else setNeedInfo(null) ; let heightCalc = (height / shrinkage) * 100;
     let widthCalc = (width / shrinkage) * 100;
     let depthCalc = (depth / shrinkage) * 100;
     setHeight(heightCalc.toFixed(2));
     setWidth(widthCalc.toFixed(2));
     setDepth(depthCalc.toFixed(2));
-    setClicked(true);
-  }
+    setClicked(true);}
+  
 
   function reset() {
     setClicked(false);
@@ -115,7 +113,7 @@ function App() {
           depthOnClick={chooseDepth}
         ></Input>
       )}
-      {clicked && (
+      {clicked && !needInfo && (
         <div className="display-container">
           <Display
             buttonClicker={reset}
