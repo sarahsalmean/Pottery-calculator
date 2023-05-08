@@ -33,6 +33,8 @@ border-color: black;
 border-style: outset;
 border-width:initial;}
 
+.choice {font-size: 20pt;}
+
 
 .slidercontainer {display:flex;
     width: 20%;}
